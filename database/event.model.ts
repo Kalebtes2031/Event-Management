@@ -1,3 +1,4 @@
+// database/event.model.ts
 import { Schema, model, models, Document } from 'mongoose';
 
 // TypeScript interface for Event document
@@ -161,9 +162,6 @@ EventSchema.pre('save', function (next) {
 
   next();
 });
-
-// Create unique index on slug for efficient lookups
-EventSchema.index({ slug: 1 });
 
 // Prevent model recompilation in development (Next.js hot reload)
 const Event = models.Event || model<IEvent>('Event', EventSchema);
